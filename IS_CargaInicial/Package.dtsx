@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="2/17/2019 4:08:59 PM"
@@ -11,9 +11,2011 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionGUID="{7819A60E-4A51-40DF-82FA-E78655D9C05E}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{077194AF-AD6F-454B-8125-3B039E99F3B0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:Variables />
-  <DTS:Executables />
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{E123BD5F-1EE5-4A1E-B14F-861B988C4B58}"
+      DTS:ObjectName="Administrador de conexiones con Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Yohann\Desktop\ArchivoOrigen\CARGA INICIAL.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[YOHANN-VAIO.CIMAURBANO]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0A487AE1-0DA1-4FF2-BAE6-80A9AA2FD751}"
+      DTS:ObjectName="YOHANN-VAIO.CIMAURBANO">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=YOHANN-VAIO;Initial Catalog=CIMAURBANO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[YOHANN-VAIO.CIMAURBANO 1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{A57E5E91-9F90-46DE-A3F9-55B1C33C0C74}"
+      DTS:ObjectName="YOHANN-VAIO.CIMAURBANO 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=YOHANN-VAIO;Initial Catalog=CIMAURBANO;Integrated Security=True;Application Name=SSIS-Package-{A57E5E91-9F90-46DE-A3F9-55B1C33C0C74}YOHANN-VAIO.CIMAURBANO 1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F6766064-0E81-4211-A75B-F057F80550B2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="dtFecha">
+      <DTS:VariableValue
+        DTS:DataType="7">2/17/2019 4:59:50 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{46A76AEB-8068-4E3E-B50A-8610E8D442FB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strDescripcion">
+      <DTS:VariableValue
+        DTS:DataType="8">100</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{12BA568B-9671-47DA-803D-46C59F5F99E7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strTabla">
+      <DTS:VariableValue
+        DTS:DataType="8">NOCARGOS</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{B1C8B540-D4D9-4629-B59D-B280AB253E05}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos GEDIVXCLASIF NOCARGOS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Búsqueda ORTABLAS"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[ORTABLAS]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[ORTABLAS]) [refTable]
+where [refTable].[NBTABLA] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IDTABLAS" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NBTABLA" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DESCRIPTABLA" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="FEREGISTRO" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de columna derivada].Columns[drTabla]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[YOHANN-VAIO.CIMAURBANO]"
+                  connectionManagerRefId="Package.ConnectionManagers[YOHANN-VAIO.CIMAURBANO]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Inputs[Entrada de búsqueda].Columns[drTabla]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="drTabla"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de columna derivada].Columns[drTabla]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">NBTABLA</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Outputs[Salida de entradas coincidentes de búsqueda].Columns[IDTABLAS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Outputs[Salida de entradas coincidentes de búsqueda].Columns[IDTABLAS]"
+                      name="IDTABLAS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">IDTABLAS</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de columna derivada].Columns[drFecha]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de columna derivada].Columns[drFecha]"
+                      name="drFecha"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">(DT_DBTIMESTAMP)@[User::dtFecha]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)@[User::dtFecha]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de columna derivada].Columns[drDescripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de columna derivada].Columns[drDescripcion]"
+                      name="drDescripcion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">(DT_STR,100,1252)@[User::strDescripcion]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,100,1252)@[User::strDescripcion]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de columna derivada].Columns[drTabla]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de columna derivada].Columns[drTabla]"
+                      name="drTabla"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">(DT_STR,20,1252)@[User::strTabla]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,20,1252)@[User::strTabla]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[NOMBRE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NOMBRE"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NOMBRE]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[CODIGOINTERFAZ]"
+                      cachedDataType="r8"
+                      cachedName="CODIGOINTERFAZ"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGOINTERFAZ]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Outputs[Salida de conversión de datos].Columns[gedivxclasifNOMBRE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="60"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Outputs[Salida de conversión de datos].Columns[gedivxclasifNOMBRE]"
+                      name="gedivxclasifNOMBRE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NOMBRE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Outputs[Salida de conversión de datos].Columns[gedivxclasifCODIGOINTERFAZ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Outputs[Salida de conversión de datos].Columns[gedivxclasifCODIGOINTERFAZ]"
+                      name="gedivxclasifCODIGOINTERFAZ"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGOINTERFAZ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[GEDIVXCLASIF]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[YOHANN-VAIO.CIMAURBANO]"
+                  connectionManagerRefId="Package.ConnectionManagers[YOHANN-VAIO.CIMAURBANO]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[gedivxclasifNOMBRE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="gedivxclasifNOMBRE"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NOMBRE]"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Outputs[Salida de conversión de datos].Columns[gedivxclasifNOMBRE]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[drDescripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="drDescripcion"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de columna derivada].Columns[drDescripcion]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[drFecha]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="drFecha"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FEREGISTRO]"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de columna derivada].Columns[drFecha]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[gedivxclasifCODIGOINTERFAZ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="gedivxclasifCODIGOINTERFAZ"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODINTERFAZ]"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Outputs[Salida de conversión de datos].Columns[gedivxclasifCODIGOINTERFAZ]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IDTABLAS]"
+                      cachedDataType="i4"
+                      cachedName="IDTABLAS"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDTABLAS]"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Outputs[Salida de entradas coincidentes de búsqueda].Columns[IDTABLAS]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDGEDIVXCLASIF]"
+                      dataType="i4"
+                      name="IDGEDIVXCLASIF" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NOMBRE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="NOMBRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESCRIPCION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="DESCRIPCION" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FEREGISTRO]"
+                      dataType="dbTimeStamp"
+                      name="FEREGISTRO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[INACTIVO]"
+                      dataType="i2"
+                      name="INACTIVO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[INUTILIZACION]"
+                      dataType="i2"
+                      name="INUTILIZACION" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDTABLAS]"
+                      dataType="i4"
+                      name="IDTABLAS" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[OBSERVACION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="OBSERVACION" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CODINTERFAZ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="CODINTERFAZ" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Origen de Excel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">NOCARGOS$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NOMBRE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NOMBRE]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NOMBRE]"
+                      name="NOMBRE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGOINTERFAZ]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CODIGO INTERFAZ]"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGOINTERFAZ]"
+                      name="CODIGOINTERFAZ"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NOMBRE]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMBRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CODIGO INTERFAZ]"
+                      dataType="r8"
+                      name="CODIGO INTERFAZ" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NOMBRE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NOMBRE]"
+                      name="NOMBRE" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CODIGO INTERFAZ]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CODIGO INTERFAZ]"
+                      name="CODIGO INTERFAZ" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS.Paths[Salida de columna derivada]"
+              endId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Inputs[Entrada de búsqueda]"
+              name="Salida de columna derivada"
+              startId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS.Paths[Salida de conversión de datos]"
+              endId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Salida de conversión de datos"
+              startId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS.Paths[Salida de origen de Excel]"
+              endId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de Excel"
+              startId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel.Outputs[Salida de origen de Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{FE52E357-1C93-4852-A84D-7560B19FC755}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Origen de Excel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">NOCIA_CARGO$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NOMBRE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NOMBRE]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NOMBRE]"
+                      name="NOMBRE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGOINTERFAZ]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CODIGO INTERFAZ]"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CODIGOINTERFAZ]"
+                      name="CODIGOINTERFAZ"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Empresa]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Empresa]"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Empresa]"
+                      name="Empresa"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NOMBRE]"
+                      dataType="wstr"
+                      length="255"
+                      name="NOMBRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CODIGO INTERFAZ]"
+                      dataType="r8"
+                      name="CODIGO INTERFAZ" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Empresa]"
+                      dataType="r8"
+                      name="Empresa" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Empresa]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Empresa]"
+                      name="Empresa" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NOMBRE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NOMBRE]"
+                      name="NOMBRE" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CODIGO INTERFAZ]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CODIGO INTERFAZ]"
+                      name="CODIGO INTERFAZ" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos NOCARGOS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{55235E23-AA3F-4DBE-BC20-08B8362F0FC7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos NOCARGOS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Búsqueda"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[ORTABLAS]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[ORTABLAS]) [refTable]
+where [refTable].[IDTABLAS] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IDTABLAS" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NBTABLA" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DESCRIPTABLA" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="FEREGISTRO" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[IDTABLAS]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[YOHANN-VAIO.CIMAURBANO]"
+                  connectionManagerRefId="Package.ConnectionManagers[YOHANN-VAIO.CIMAURBANO]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Inputs[Entrada de búsqueda].Columns[IDTABLAS]"
+                      cachedDataType="i4"
+                      cachedName="IDTABLAS"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[IDTABLAS]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">IDTABLAS</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[NBTABLA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copiar columna"
+                      length="30"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[NBTABLA]"
+                      name="NBTABLA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">NBTABLA</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[NOCARGOS]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[YOHANN-VAIO.CIMAURBANO]"
+                  connectionManagerRefId="Package.ConnectionManagers[YOHANN-VAIO.CIMAURBANO]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[IDGEDIVXCLASIF]"
+                      cachedDataType="i4"
+                      cachedName="IDGEDIVXCLASIF"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDGEDIVXCLASIF]"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[IDGEDIVXCLASIF]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDNOCARGO]"
+                      dataType="i4"
+                      name="IDNOCARGO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDGEDIVXCLASIF]"
+                      dataType="i4"
+                      name="IDGEDIVXCLASIF" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos NOCARGOS\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos NOCARGOS\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\División condicional.Inputs[Entrada de división condicional].Columns[NBTABLA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="NBTABLA"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[NBTABLA]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos NOCARGOS\División condicional.Outputs[NOCARGOS]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="NOCARGOS"
+                  synchronousInputId="Package\Tarea Flujo de datos NOCARGOS\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">#{Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[NBTABLA]} == "NOCARGOS"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">NBTABLA == "NOCARGOS"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos NOCARGOS\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\Tarea Flujo de datos NOCARGOS\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos NOCARGOS\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\Tarea Flujo de datos NOCARGOS\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen de ADO NET"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."GEDIVXCLASIF"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[YOHANN-VAIO.CIMAURBANO 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[YOHANN-VAIO.CIMAURBANO 1]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[IDGEDIVXCLASIF]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[IDGEDIVXCLASIF]"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[IDGEDIVXCLASIF]"
+                      name="IDGEDIVXCLASIF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[NOMBRE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[NOMBRE]"
+                      length="60"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[NOMBRE]"
+                      name="NOMBRE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[DESCRIPCION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[DESCRIPCION]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[DESCRIPCION]"
+                      name="DESCRIPCION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[FEREGISTRO]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[FEREGISTRO]"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[FEREGISTRO]"
+                      name="FEREGISTRO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[INACTIVO]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[INACTIVO]"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[INACTIVO]"
+                      name="INACTIVO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[INUTILIZACION]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[INUTILIZACION]"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[INUTILIZACION]"
+                      name="INUTILIZACION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[IDTABLAS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[IDTABLAS]"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[IDTABLAS]"
+                      name="IDTABLAS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[OBSERVACION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[OBSERVACION]"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[OBSERVACION]"
+                      name="OBSERVACION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CODINTERFAZ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[CODINTERFAZ]"
+                      length="25"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[CODINTERFAZ]"
+                      name="CODINTERFAZ"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[IDGEDIVXCLASIF]"
+                      dataType="i4"
+                      name="IDGEDIVXCLASIF" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[NOMBRE]"
+                      dataType="wstr"
+                      length="60"
+                      name="NOMBRE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[DESCRIPCION]"
+                      dataType="wstr"
+                      length="100"
+                      name="DESCRIPCION" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[FEREGISTRO]"
+                      dataType="dbTimeStamp"
+                      name="FEREGISTRO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[INACTIVO]"
+                      dataType="i2"
+                      name="INACTIVO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[INUTILIZACION]"
+                      dataType="i2"
+                      name="INUTILIZACION" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[IDTABLAS]"
+                      dataType="i4"
+                      name="IDTABLAS" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[OBSERVACION]"
+                      dataType="wstr"
+                      length="100"
+                      name="OBSERVACION" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[CODINTERFAZ]"
+                      dataType="wstr"
+                      length="25"
+                      name="CODINTERFAZ" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[IDGEDIVXCLASIF]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[IDGEDIVXCLASIF]"
+                      name="IDGEDIVXCLASIF" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[NOMBRE]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[NOMBRE]"
+                      name="NOMBRE" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[DESCRIPCION]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[DESCRIPCION]"
+                      name="DESCRIPCION" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[FEREGISTRO]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[FEREGISTRO]"
+                      name="FEREGISTRO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[INACTIVO]"
+                      dataType="i2"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[INACTIVO]"
+                      name="INACTIVO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[INUTILIZACION]"
+                      dataType="i2"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[INUTILIZACION]"
+                      name="INUTILIZACION" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[IDTABLAS]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[IDTABLAS]"
+                      name="IDTABLAS" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[OBSERVACION]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[OBSERVACION]"
+                      name="OBSERVACION" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[CODINTERFAZ]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[CODINTERFAZ]"
+                      name="CODINTERFAZ" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos NOCARGOS.Paths[NOCARGOS]"
+              endId="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="NOCARGOS"
+              startId="Package\Tarea Flujo de datos NOCARGOS\División condicional.Outputs[NOCARGOS]" />
+            <path
+              refId="Package\Tarea Flujo de datos NOCARGOS.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\Tarea Flujo de datos NOCARGOS\División condicional.Inputs[Entrada de división condicional]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\Tarea Flujo de datos NOCARGOS.Paths[Salida de origen de ADO NET]"
+              endId="Package\Tarea Flujo de datos NOCARGOS\Búsqueda.Inputs[Entrada de búsqueda]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{E94C0A83-9904-4CB5-A49B-DC5FF322C659}"
+      DTS:From="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Tarea Flujo de datos NOCARGOS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="308,42"
+          Id="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS"
+          TopLeft="405,66" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Tarea Flujo de datos NOCARGOS"
+          TopLeft="439,151" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="559.75,108">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="324,42"
+          Id="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO"
+          TopLeft="408,243" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel"
+          TopLeft="523.5,36.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Conversión de datos"
+          TopLeft="517,134" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS.Paths[Salida de origen de Excel]"
+          TopLeft="606.25,78.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.5"
+              Start="0,0"
+              End="0,48">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Columna derivada"
+          TopLeft="520,226" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS.Paths[Salida de conversión de datos]"
+          TopLeft="605.25,176">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB"
+          TopLeft="518.5,397.5" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS"
+          TopLeft="516,312" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS.Paths[Salida de columna derivada]"
+          TopLeft="605.75,268">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="605.75,354">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.5"
+              Start="0,0"
+              End="0,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-99.8190234375,11.90234375,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos NOCARGOS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET"
+          TopLeft="470,70" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Tarea Flujo de datos NOCARGOS\División condicional"
+          TopLeft="471,233" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB"
+          TopLeft="365,337" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos NOCARGOS.Paths[NOCARGOS]"
+          TopLeft="556.5,275">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-107.5,62"
+              Start="0,0"
+              End="-107.5,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="-4,31" />
+                  <mssgle:LineSegment
+                    End="-103.5,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-103.5,31"
+                    Point2="-107.5,31"
+                    Point3="-107.5,35" />
+                  <mssgle:LineSegment
+                    End="-107.5,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-79.90248046875,36,52.3049609375,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Tarea Flujo de datos NOCARGOS\Búsqueda"
+          TopLeft="470,147" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos NOCARGOS.Paths[Salida de origen de ADO NET]"
+          TopLeft="555.25,112">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos NOCARGOS.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="555.5,189">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-99.8190234375,12.15234375,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Origen de Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos GEDIVXCLASIF NOCARGOS\Búsqueda ORTABLAS">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[ORTABLAS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos NOCARGOS\Origen de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos NOCARGOS\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos NOCARGOS\Búsqueda">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[ORTABLAS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel"
+          TopLeft="486.5,35.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos GEDIVXCLASIF NOCIA_CARGO\Origen de Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
