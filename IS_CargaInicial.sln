@@ -1,22 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "IS_CargaInicial", "IS_CargaInicial\IS_CargaInicial.dtproj", "{1828BB9A-BECA-4883-A23A-1AD83C0D7118}"
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "IS_CargaInicial", "IS_CargaInicial\IS_CargaInicial.dtproj", "{F1C18351-B307-4206-B7A4-ACC2E486D15E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1828BB9A-BECA-4883-A23A-1AD83C0D7118}.Development|Default.ActiveCfg = Development
-		{1828BB9A-BECA-4883-A23A-1AD83C0D7118}.Development|Default.Build.0 = Development
+		{F1C18351-B307-4206-B7A4-ACC2E486D15E}.Development|Default.ActiveCfg = Development
+		{F1C18351-B307-4206-B7A4-ACC2E486D15E}.Development|Default.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {FB37D0F1-B48B-4FF1-BCE2-2FDF73FE19E4}
 	EndGlobalSection
 EndGlobal
